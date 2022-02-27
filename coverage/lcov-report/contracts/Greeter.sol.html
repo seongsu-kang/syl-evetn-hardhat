@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/Greeter.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> Greeter.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.14% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/22</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//SPDX-License-Identifier: Unlicense
+pragma solidity ^0.5.6;
+&nbsp;
+import "./klaytn-contracts/math/SafeMath.sol";
+&nbsp;
+contract Greeter{
+    using SafeMath for uint256;
+&nbsp;
+    mapping(uint64 =&gt; address[]) public verifiedAccountByUid;
+&nbsp;
+    event successVerify(uint64, address);
+&nbsp;
+    function getVerifiedAccount(uint64 _uid) external view returns (address[] memory ){
+        return verifiedAccountByUid[_uid];
+    }
+&nbsp;
+    function verifyAccount(uint64 _uid) external {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(verifiedAccountByUid[_uid].length&lt;1, "Already exist account");
+        verifiedAccountByUid[_uid] = [msg.sender];
+        emit successVerify(_uid, msg.sender);
+    }
+&nbsp;
+    function verifyAccountAdd(uint64 _uid) external {
+    uint256 length = verifiedAccountByUid[_uid].length;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(length &gt; 0, "Uid not found");
+        require(length &lt; 5, "Storage limit exceeded.");
+        for (uint256 index = 0; index &lt; length; index = index.add(1)) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>require(verifiedAccountByUid[_uid][index]!=msg.sender);
+        }
+        verifiedAccountByUid[_uid].push(msg.sender);
+        emit successVerify(_uid, msg.sender);
+    }
+&nbsp;
+    function verifiedAccountDelete(uint64 _uid) external {
+        uint256 length = verifiedAccountByUid[_uid].length;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(length &gt; 0, "Uid not found");
+        for (uint256 index = 0; index &lt; length; index = index.add(1)) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(verifiedAccountByUid[_uid][index]==msg.sender){
+               <span class="missing-if-branch" title="if path not taken" >I</span>if (index &gt;= length) <span class="cstat-no" title="statement not covered" >return;</span>
+                for (uint i = index; i&lt;length-1; i++){
+                    verifiedAccountByUid[_uid][i] = verifiedAccountByUid[_uid][i+1];
+                }
+                delete verifiedAccountByUid[_uid][verifiedAccountByUid[_uid].length-1];
+                verifiedAccountByUid[_uid].length--;
+                break;
+            }
+        }
+        return;
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Feb 13 2022 17:19:10 GMT+0900 (Korean Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

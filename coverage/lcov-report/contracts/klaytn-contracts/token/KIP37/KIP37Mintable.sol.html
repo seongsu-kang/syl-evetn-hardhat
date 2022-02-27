@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/klaytn-contracts/token/KIP37/KIP37Mintable.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">contracts/klaytn-contracts/token/KIP37/</a> KIP37Mintable.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/24</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">pragma solidity ^0.5.0;
+&nbsp;
+import "./KIP37.sol";
+import "../../access/roles/MinterRole.sol";
+&nbsp;
+/**
+ * @dev Extension of {KIP37} that allows token holders to destroy both their
+ * own tokens and those that they have been approved to use.
+ */
+contract KIP37Mintable is KIP37, MinterRole {
+    /*
+     *     bytes4(keccak256('create(uint256,uint256,string)')) == 0x4b068c78
+     *     bytes4(keccak256('mint(uint256,address,uint256)')) == 0x836a1040
+     *     bytes4(keccak256('mint(uint256,address[],uint256[])')) == 0xcfa84fc1
+     *     bytes4(keccak256('mintBatch(address,uint256[],uint256[])')) == 0xd81d0a15
+     *
+     *     =&gt; 0x4b068c78 ^ 0x836a1040 ^ 0xcfa84fc1 ^ 0xd81d0a15 == 0xdfd9d9ec
+     */
+    bytes4 private constant _INTERFACE_ID_KIP37_MINTABLE = 0xdfd9d9ec;
+&nbsp;
+    // id =&gt; creators
+    mapping(uint256 =&gt; address) public creators;
+&nbsp;
+    mapping(uint256 =&gt; string) _uris;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor() public {</span>
+<span class="cstat-no" title="statement not covered" >        _registerInterface(_INTERFACE_ID_KIP37_MINTABLE)</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _exists(uint256 tokenId) internal view returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >        address creator = creators[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >        return creator != address(0);</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IKIP37MetadataURI-uri}.
+     *
+     * This implementation returns the same URI for *all* token types. It relies
+     * on the token type ID substituion mechanism
+     * http://kips.klaytn.com/KIPs/kip-37#metadata
+     *
+     * Clients calling this function must replace the `\{id\}` substring with the
+     * actual token type ID.
+     */
+<span class="fstat-no" title="function not covered" >    function uri(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >        string memory customURI = string(_uris[tokenId]);</span>
+<span class="cstat-no" title="statement not covered" >        if (bytes(customURI).length != 0) {</span>
+<span class="cstat-no" title="statement not covered" >            return customURI;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return _uri;</span>
+    }
+&nbsp;
+    /// @notice Creates a new token type and assigns _initialSupply to the minter.
+    /// @dev Throws if `msg.sender` is not allowed to create.
+    ///   Throws if the token id is already used.
+    /// @param _id The token id to create.
+    /// @param _initialSupply The amount of tokens being minted.
+    /// @param _uri The token URI of the created token.
+    /// @return A boolean that indicates if the operation was successful.
+<span class="fstat-no" title="function not covered" >    function create(</span>
+        uint256 _id,
+        uint256 _initialSupply,
+        string memory _uri
+    ) public onlyMinter returns (bool) {
+<span class="cstat-no" title="statement not covered" >        require(!_exists(_id), "KIP37: token already created")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        creators[_id] = msg.sender</span>;
+<span class="cstat-no" title="statement not covered" >        _mint(msg.sender, _id, _initialSupply, "")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (bytes(_uri).length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            _uris[_id] = _uri</span>;
+<span class="cstat-no" title="statement not covered" >            emit URI(_uri, _id);</span>
+        }
+    }
+&nbsp;
+    /// @notice Mints tokens of the specific token type `_id` and assigns the tokens according to the variables `_to` and `_value`.
+    /// @dev Throws if `msg.sender` is not allowed to mint.
+    ///   MUST emit an event `TransferSingle`.
+    /// @param _id The token id to mint.
+    /// @param _to The address that will receive the minted tokens.
+    /// @param _value The quantity of tokens being minted.
+<span class="fstat-no" title="function not covered" >    function mint(</span>
+        uint256 _id,
+        address _to,
+        uint256 _value
+    ) public onlyMinter {
+<span class="cstat-no" title="statement not covered" >        require(_exists(_id), "KIP37: nonexistent token")</span>;
+<span class="cstat-no" title="statement not covered" >        _mint(_to, _id, _value, "")</span>;
+    }
+&nbsp;
+    /// @notice Mints tokens of the specific token type `_id` in a batch and assigns the tokens according to the variables `_toList` and `_values`.
+    /// @dev Throws if `msg.sender` is not allowed to mint.
+    ///   MUST emit one or more `TransferSingle` events.
+    ///   MUST revert if the length of `_toList` is not the same as the length of `_values`.
+    /// @param _id The token id to mint.
+    /// @param _toList The list of addresses that will receive the minted tokens.
+    /// @param _values The list of quantities of tokens being minted.
+<span class="fstat-no" title="function not covered" >    function mint(</span>
+        uint256 _id,
+        address[] memory _toList,
+        uint256[] memory _values
+    ) public onlyMinter {
+<span class="cstat-no" title="statement not covered" >        require(_exists(_id), "KIP37: nonexistent token")</span>;
+<span class="cstat-no" title="statement not covered" >        require(</span>
+            _toList.length == _values.length,
+            "KIP37: toList and _values length mismatch"
+        );
+<span class="cstat-no" title="statement not covered" >        for (uint256 i = 0; i &lt; _toList.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >            address to = _toList[i];</span>
+<span class="cstat-no" title="statement not covered" >            uint256 value = _values[i];</span>
+<span class="cstat-no" title="statement not covered" >            _mint(to, _id, value, "")</span>;
+        }
+    }
+&nbsp;
+    /// @notice Mints multiple KIP37 tokens of the specific token types `_ids` in a batch and assigns the tokens according to the variables `_to` and `_values`.
+    /// @dev Throws if `msg.sender` is not allowed to mint.
+    ///   MUST emit one or more `TransferSingle` events or a single `TransferBatch` event.
+    ///   MUST revert if the length of `_ids` is not the same as the length of `_values`.
+    /// @param _to The address that will receive the minted tokens.
+    /// @param _ids The list of the token ids to mint.
+    /// @param _values The list of quantities of tokens being minted.
+<span class="fstat-no" title="function not covered" >    function mintBatch(</span>
+        address _to,
+        uint256[] memory _ids,
+        uint256[] memory _values
+    ) public onlyMinter {
+<span class="cstat-no" title="statement not covered" >        for (uint256 i = 0; i &lt; _ids.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >            require(_exists(_ids[i]), "KIP37: nonexistent token")</span>;
+        }
+<span class="cstat-no" title="statement not covered" >        _mintBatch(_to, _ids, _values, "")</span>;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 15 2022 23:45:01 GMT+0900 (Korean Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
